@@ -1,0 +1,19 @@
+---
+# Main CSS entry point for Jekyll Theme Sleek
+# This file imports all SCSS partials
+---
+
+// Variables must be imported first (contains CSS custom properties and SCSS vars)
+@import "variables";
+
+// Base styles (reset, typography, elements)
+@import "base";
+
+// Layout (sidebar, content area, navigation)
+@import "layout";
+
+// Syntax highlighting for code blocks
+@import "syntax";
+
+// Dark mode overrides
+@import "dark-mode";

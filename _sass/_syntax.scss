@@ -1,0 +1,241 @@
+// Jekyll Theme Sleek - Syntax Highlighting
+// Rouge syntax highlighter theme (works in light and dark modes)
+
+// =============================================================================
+// Code Block Container
+// =============================================================================
+
+.highlight {
+  position: relative;
+  margin-bottom: $spacing-4;
+  border-radius: 8px;
+  overflow: hidden;
+
+  pre {
+    margin: 0;
+    padding: $spacing-4;
+    overflow-x: auto;
+    background-color: var(--syntax-bg);
+
+    code {
+      display: block;
+      padding: 0;
+      background: none;
+      color: var(--syntax-text);
+      font-size: $font-size-sm;
+      line-height: 1.6;
+    }
+  }
+
+  // Line numbers (if enabled)
+  .lineno {
+    color: var(--syntax-comment);
+    padding-right: $spacing-4;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    margin-right: $spacing-4;
+    user-select: none;
+  }
+}
+
+// =============================================================================
+// Rouge Token Colors
+// =============================================================================
+
+.highlight {
+  // Comments
+  .c,      // Comment
+  .c1,     // Comment.Single
+  .cm,     // Comment.Multiline
+  .cs,     // Comment.Special
+  .cp {    // Comment.Preproc
+    color: var(--syntax-comment);
+    font-style: italic;
+  }
+
+  // Keywords
+  .k,      // Keyword
+  .kc,     // Keyword.Constant
+  .kd,     // Keyword.Declaration
+  .kn,     // Keyword.Namespace
+  .kp,     // Keyword.Pseudo
+  .kr,     // Keyword.Reserved
+  .kt {    // Keyword.Type
+    color: var(--syntax-keyword);
+  }
+
+  // Strings
+  .s,      // String
+  .s1,     // String.Single
+  .s2,     // String.Double
+  .sb,     // String.Backtick
+  .sc,     // String.Char
+  .sd,     // String.Doc
+  .se,     // String.Escape
+  .sh,     // String.Heredoc
+  .si,     // String.Interpol
+  .sr,     // String.Regex
+  .ss,     // String.Symbol
+  .sx {    // String.Other
+    color: var(--syntax-string);
+  }
+
+  // Numbers
+  .m,      // Number
+  .mf,     // Number.Float
+  .mh,     // Number.Hex
+  .mi,     // Number.Integer
+  .mo,     // Number.Oct
+  .mb,     // Number.Bin
+  .mx,     // Number.Other
+  .il {    // Number.Integer.Long
+    color: var(--syntax-number);
+  }
+
+  // Functions & Methods
+  .nf,     // Name.Function
+  .fm,     // Name.Function.Magic
+  .nc {    // Name.Class
+    color: var(--syntax-function);
+  }
+
+  // Variables & Names
+  .n,      // Name
+  .na,     // Name.Attribute
+  .nb,     // Name.Builtin
+  .bp,     // Name.Builtin.Pseudo
+  .ni,     // Name.Entity
+  .nl,     // Name.Label
+  .nn,     // Name.Namespace
+  .no,     // Name.Constant
+  .nv,     // Name.Variable
+  .vc,     // Name.Variable.Class
+  .vg,     // Name.Variable.Global
+  .vi,     // Name.Variable.Instance
+  .vm {    // Name.Variable.Magic
+    color: var(--syntax-variable);
+  }
+
+  // Operators
+  .o,      // Operator
+  .ow {    // Operator.Word
+    color: var(--syntax-operator);
+  }
+
+  // Punctuation
+  .p {     // Punctuation
+    color: var(--syntax-text);
+  }
+
+  // Generic tokens
+  .gd {    // Generic.Deleted
+    color: #e06c75;
+    background-color: rgba(224, 108, 117, 0.1);
+  }
+
+  .gi {    // Generic.Inserted
+    color: #98c379;
+    background-color: rgba(152, 195, 121, 0.1);
+  }
+
+  .ge {    // Generic.Emph
+    font-style: italic;
+  }
+
+  .gs {    // Generic.Strong
+    font-weight: bold;
+  }
+
+  .gh,     // Generic.Heading
+  .gu {    // Generic.Subheading
+    color: var(--syntax-function);
+    font-weight: bold;
+  }
+
+  // Error
+  .err {
+    color: #e06c75;
+  }
+
+  // Text
+  .w {     // Text.Whitespace
+    color: var(--syntax-text);
+  }
+
+  // Special
+  .nt {    // Name.Tag (HTML/XML tags)
+    color: var(--syntax-variable);
+  }
+
+  .nd {    // Name.Decorator
+    color: var(--syntax-function);
+  }
+
+  .ne {    // Name.Exception
+    color: var(--syntax-variable);
+  }
+}
+
+// =============================================================================
+// Language-specific tweaks
+// =============================================================================
+
+// Shell/Bash prompt
+.language-bash,
+.language-shell,
+.language-sh {
+  .highlight .nv {
+    color: var(--syntax-variable);
+  }
+}
+
+// YAML
+.language-yaml,
+.language-yml {
+  .highlight {
+    .na {
+      color: var(--syntax-variable);
+    }
+    .s {
+      color: var(--syntax-string);
+    }
+  }
+}
+
+// JSON
+.language-json {
+  .highlight {
+    .nl {
+      color: var(--syntax-variable);
+    }
+  }
+}
+
+// =============================================================================
+// Copy button (optional enhancement)
+// =============================================================================
+
+.highlight {
+  .copy-button {
+    position: absolute;
+    top: $spacing-2;
+    right: $spacing-2;
+    padding: $spacing-1 $spacing-2;
+    font-size: $font-size-xs;
+    color: var(--syntax-comment);
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all var(--transition-fast);
+
+    &:hover {
+      color: var(--syntax-text);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+  }
+
+  &:hover .copy-button {
+    opacity: 1;
+  }
+}

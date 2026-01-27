@@ -1,0 +1,8 @@
+<nav class="bottom-nav">
+  {% for item in site.navigation %}
+  <a href="{{ item.url | relative_url }}" class="bottom-nav__link{% if page.url == item.url %} bottom-nav__link--active{% endif %}">
+    {% if item.icon %}<i class="{{ item.icon }}"></i>{% endif %}
+    <span>{{ item.title }}</span>
+  </a>
+  {% endfor %}
+</nav>
