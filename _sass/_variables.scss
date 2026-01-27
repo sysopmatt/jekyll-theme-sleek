@@ -1,0 +1,142 @@
+// Jekyll Theme Sleek - Variables
+// Design tokens for colors, typography, spacing, and breakpoints
+
+// =============================================================================
+// Colors - Light Mode (default)
+// =============================================================================
+
+:root {
+  // Primary accent (Databricks-ish blue)
+  --color-primary: #0073e6;
+  --color-primary-hover: #005bb5;
+  --color-primary-light: #e6f2ff;
+
+  // Backgrounds
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f8f9fa;
+  --color-bg-sidebar: #1a1a2e;
+
+  // Text
+  --color-text: #2d3748;
+  --color-text-secondary: #718096;
+  --color-text-muted: #a0aec0;
+  --color-text-sidebar: #e2e8f0;
+
+  // Borders
+  --color-border: #e2e8f0;
+  --color-border-light: #edf2f7;
+
+  // Code
+  --color-code-bg: #f7fafc;
+  --color-code-text: #1a202c;
+
+  // Syntax highlighting
+  --syntax-bg: #282c34;
+  --syntax-text: #abb2bf;
+  --syntax-comment: #5c6370;
+  --syntax-keyword: #c678dd;
+  --syntax-string: #98c379;
+  --syntax-number: #d19a66;
+  --syntax-function: #61afef;
+  --syntax-variable: #e06c75;
+  --syntax-operator: #56b6c2;
+
+  // Shadows
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  // Transitions
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+}
+
+// =============================================================================
+// Typography
+// =============================================================================
+
+// System font stack
+$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+
+$font-family-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+  "Liberation Mono", monospace;
+
+// Font sizes (smaller, sleeker)
+$font-size-xs: 0.75rem;    // 12px
+$font-size-sm: 0.8125rem;  // 13px
+$font-size-base: 0.875rem; // 14px
+$font-size-md: 1rem;       // 16px
+$font-size-lg: 1.125rem;   // 18px
+$font-size-xl: 1.25rem;    // 20px
+$font-size-2xl: 1.5rem;    // 24px
+$font-size-3xl: 1.875rem;  // 30px
+
+// Line heights
+$line-height-tight: 1.25;
+$line-height-base: 1.6;
+$line-height-relaxed: 1.75;
+
+// Font weights
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// =============================================================================
+// Spacing
+// =============================================================================
+
+$spacing-0: 0;
+$spacing-1: 0.25rem;  // 4px
+$spacing-2: 0.5rem;   // 8px
+$spacing-3: 0.75rem;  // 12px
+$spacing-4: 1rem;     // 16px
+$spacing-5: 1.25rem;  // 20px
+$spacing-6: 1.5rem;   // 24px
+$spacing-8: 2rem;     // 32px
+$spacing-10: 2.5rem;  // 40px
+$spacing-12: 3rem;    // 48px
+$spacing-16: 4rem;    // 64px
+
+// =============================================================================
+// Layout
+// =============================================================================
+
+$sidebar-width: 280px;
+$content-max-width: 800px;
+$bottom-nav-height: 60px;
+
+// =============================================================================
+// Breakpoints
+// =============================================================================
+
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// Mixins for responsive design
+@mixin mobile {
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$breakpoint-md}) and (max-width: #{$breakpoint-lg - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-lg}) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: #{$breakpoint-md}) {
+    @content;
+  }
+}

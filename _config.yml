@@ -1,0 +1,65 @@
+# Jekyll Theme Sleek - Default Configuration
+# These can be overridden in the site's _config.yml
+
+title: "Site Title"
+description: "Site description"
+url: ""
+baseurl: ""
+
+# Author defaults
+author:
+  name: "Author Name"
+  email: ""
+  avatar: ""
+  bio: ""
+  links: []
+
+# Navigation - override in site's _data/navigation.yml
+navigation:
+  - title: Home
+    url: /
+    icon: fas fa-home
+  - title: Posts
+    url: /posts/
+    icon: fas fa-newspaper
+  - title: About
+    url: /about/
+    icon: fas fa-user
+
+# Social links for sidebar
+social_links: []
+
+# Theme settings
+theme_settings:
+  date_format: "%B %-d, %Y"
+  read_time: true
+  words_per_minute: 200
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+permalink: /:year-:month-:day-:title/
+paginate: 10
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-sitemap
