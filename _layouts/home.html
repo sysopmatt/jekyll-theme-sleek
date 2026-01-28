@@ -11,24 +11,43 @@ layout: default
 
   {{ content }}
 
+  {% if page.featured_sections %}
+  <section class="featured">
+    <div class="featured__grid">
+      {% for item in page.featured_sections %}
+      <a href="{{ item.url | relative_url }}" class="featured__card">
+        <div class="featured__icon">
+          <i class="{{ item.icon }}"></i>
+        </div>
+        <h3 class="featured__title">{{ item.title }}</h3>
+        <p class="featured__description">{{ item.description }}</p>
+        <span class="featured__cta">{{ item.cta | default: "Learn more" }} <i class="fas fa-arrow-right"></i></span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
   {% if site.posts.size > 0 %}
-  <h2>Recent Posts</h2>
-  <ul class="post-list">
-    {% for post in site.posts limit:10 %}
-    <li class="post-item">
-      <h3 class="post-item__title">
-        <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-      </h3>
-      <p class="post-item__meta">
-        <time datetime="{{ post.date | date_to_xmlschema }}">
-          {{ post.date | date: site.theme_settings.date_format | default: "%B %-d, %Y" }}
-        </time>
-      </p>
-      {% if post.excerpt %}
-      <p class="post-item__excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</p>
-      {% endif %}
-    </li>
-    {% endfor %}
-  </ul>
+  <section class="posts-section">
+    <h2>Recent Posts</h2>
+    <ul class="post-list">
+      {% for post in site.posts limit:10 %}
+      <li class="post-item">
+        <h3 class="post-item__title">
+          <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        </h3>
+        <p class="post-item__meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: site.theme_settings.date_format | default: "%B %-d, %Y" }}
+          </time>
+        </p>
+        {% if post.excerpt %}
+        <p class="post-item__excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</p>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
   {% endif %}
 </div>
