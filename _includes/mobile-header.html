@@ -1,0 +1,8 @@
+<header class="mobile-header">
+  <a href="{{ '/' | relative_url }}" class="mobile-header__brand">
+    {% if site.author.avatar %}
+    <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" class="mobile-header__avatar">
+    {% endif %}
+    <span class="mobile-header__title">{{ site.title }}</span>
+  </a>
+</header>
